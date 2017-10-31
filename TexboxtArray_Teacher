@@ -1,0 +1,67 @@
+package PACK1;
+
+import java.util.Random;
+
+import javax.swing.JOptionPane;
+
+import sun.reflect.generics.tree.BaseType;
+
+public class Muli_Arrays {
+
+	
+	
+	
+	public static void main(String[] args) {
+
+
+		Random rnd = new Random();
+		
+		int [][] base_array = new int [4][4];
+		
+		int [] array1 = new int [4];
+		int [] array2 = new int [4];
+		int [] array3 = new int [4];
+		int [] array4 = new int [4];
+		
+	int range=Integer.parseInt(JOptionPane.showInputDialog
+			(null,"Enter Range","MultiArrays",JOptionPane.QUESTION_MESSAGE));
+		
+	
+		String output="";
+	
+		for(int i=0; i<4; i++){
+			for (int j=0; j<4; j++){
+				
+				base_array[i][j]=rnd.nextInt(range)+1;
+				output+=base_array[i][j]+" ";
+			}
+			output+="\n";
+		}
+		
+		for(int i=0; i<4; i++){
+			
+			array1[i]=base_array[0][i]+base_array[1][i];
+			array2[i]=base_array[2][i]+base_array[3][i];
+			array3[i]=base_array[i][0]+base_array[i][1];
+			array4[i]=base_array[i][2]+base_array[i][3];
+			
+		}
+		output+="\nTotal Arrays\n";
+
+		output+=display(array1)+display(array2)+
+				display(array3)+display(array4);
+		
+		JOptionPane.showMessageDialog
+		(null, "Multi Arrays\n"+output,"JAVA",JOptionPane.INFORMATION_MESSAGE);
+	}
+	public static String display(int []array){
+		
+		String output="";
+		for(int i=0; i<4; i++){
+			output+=array[i]+" ";
+		}
+		output+="\n";
+		return output;
+	}
+
+}
