@@ -1,0 +1,70 @@
+package PACK1;
+
+import java.util.Random;
+
+import javax.swing.JOptionPane;
+
+import sun.reflect.generics.tree.BaseType;
+
+public class Muli_Arrays {
+
+	
+	
+	
+	public static void main(String[] args) {
+
+
+		Random rnd = new Random();
+		
+		int [][] base_array = new int [4][4];
+		
+		int [][] sum_array = new int [4][4];
+	
+		String output="";
+	
+		for(int i=0; i<4; i++){
+			for (int j=0; j<4; j++){
+				
+				base_array[i][j]=rnd.nextInt(9)+1;
+				output+=base_array[i][j]+" ";
+			}
+			output+="\n";
+			
+		}
+		
+		for(int i=0; i<4; i++){
+			for(int j=0; j<4; j++){
+				
+				if(j==0){
+					
+					sum_array[i][j]=base_array[i][j]+base_array[i][j+1];
+				}
+				else if(j==3){
+					
+					sum_array[i][j]=base_array[i][j]+base_array[i][j-1];
+				}
+				else {
+					sum_array[i][j]=base_array[i][j-1]+base_array[i][j+1];
+				}
+				
+				
+			}
+		}
+		
+		output+="\nSum Array\n";
+		for(int i=0; i<4; i++){
+			for (int j=0; j<4; j++){
+				
+				output+=sum_array[i][j]+" ";
+			}
+			output+="\n";
+			
+		}
+		
+		JOptionPane.showMessageDialog(null, "Base Array\n"+output,"JAVA",
+				JOptionPane.INFORMATION_MESSAGE);
+		
+		
+	}
+
+}
