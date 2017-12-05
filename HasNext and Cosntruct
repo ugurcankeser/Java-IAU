@@ -1,0 +1,55 @@
+//Main
+package libary;
+
+public class Book {
+
+	String author,title,category;
+	int id,year;
+	public boolean isAvailable;
+	public Book(int id,int year,String title,String author,String category,boolean isAvailable){
+		this.author=author;
+		this.title=title;
+		this.id=id;
+		this.year=year;
+		this.title=title;
+		this.category=category;
+		this.isAvailable=isAvailable;
+	}
+		public Book(){
+	}
+	
+	
+}
+//Second Class
+package libary;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Enrollment {
+
+ static Book[]bookArray=new Book[4];
+ static ArrayList<Book> booklist;
+ static Iterator<Book> iter;
+ 
+	public static void main(String[] args) {
+		
+		booklist=new ArrayList<Book>();
+		
+		bookArray[0]=new Book(1,2010,"Java","Uğurcan Keser","Computer Sciene",true);
+		bookArray[1]=new Book(2,2014,"C#","Utku Yıldız","Computer Sciene",true);
+		bookArray[2]=new Book(3,2017,"Pyton","Yekta Sarıoğlu","Computer Sciene",true);
+		bookArray[3]=new Book(4,2014,"C++ Tricky","Alparslan Horasan","Computer Sciene",true);
+		for(int i=0;i<bookArray.length;i++){
+			booklist.add(bookArray[i]);
+		}
+		Book book;
+      iter=booklist.iterator();
+      while(iter.hasNext()){
+    	  book=iter.next();
+    	  System.out.println(book.id+"\n"+book.title+"\n"+book.author+"\n"+book.category
+    			  +"\n"+book.year);
+      }
+	}
+
+}
