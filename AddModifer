@@ -1,0 +1,97 @@
+package base;
+
+ public class Vehicle {
+
+	int engineSize;
+	String fuelType, transmission;
+	
+	protected Vehicle(int engineSize, String fuelType, String transmission) {
+		
+		this.engineSize = engineSize;
+		this.fuelType = fuelType;
+		this.transmission = transmission;
+	}
+	
+	protected void display(){
+		System.out.println("Engine Size: "+this.engineSize+
+						   "\nFuel Type: "+this.fuelType+
+						   "\nTransmission: "+this.transmission);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+\\\\\\
+package cars;
+
+import base.Vehicle;
+
+public class Car extends Vehicle{
+	
+	int numberofDoors, horsePower;
+	private String make;
+	
+	Car(int engineSize, String fuelType, 
+			String transmission, int numberofDoors, int horsePower, String make){
+		super(engineSize, fuelType, transmission);
+		this.make=make;
+		this.numberofDoors=numberofDoors;
+		this.horsePower=horsePower;
+	}
+	
+	protected void display(){
+		
+		super.display();
+		System.out.println("Make: "+this.make+
+						   "\nNumber of Doors: "+this.numberofDoors+
+						   "\nHorse Power: "+this.horsePower);
+	}
+	
+
+}
+\\\\
+package cars;
+
+public class BMW extends Car{
+
+	String color, Model;
+	boolean convertible;
+	
+	BMW(int engineSize, String fuelType, 
+			String transmission, int numberofDoors,
+			int horsePower, String make, String color, 
+			String Model,boolean convertible){
+		
+		super(engineSize, fuelType,transmission,numberofDoors,
+				horsePower, make);
+		this.color=color;
+		this.Model=Model;
+		this.convertible=convertible;
+	}
+	
+	public void display(){
+		super.display();
+		System.out.println("Color: "+this.color+
+						   "\nModel: "+this.Model+
+						   "\nConvertible: "+this.convertible);
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		
+		BMW newBMW = new BMW(1500, "Gas", "Auto", 5, 185, 
+							 "Ultimate Co.", "Red", "5.25", true);
+		
+		newBMW.display();
+		
+
+	}
+
+}
